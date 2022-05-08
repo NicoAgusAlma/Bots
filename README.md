@@ -1,1 +1,1 @@
-<h1>Bienvenide a mi GitHub</h1>
+<h1>Bienvenidos a mi GitHub!</h1>
