@@ -8,7 +8,7 @@
 
 ## 🆘 Atención!
 Para poder hacer funcionar estos Bots, hace falta tener instalado Selenium y un navegador (driver).
-En mi caso, instale Chrome como diver.
+En mi caso, instale Chrome como driver.
 
 ## ❔ Como hacer esto?
 En caso de no tener instalados Selenium, ni el Chrome driver:
