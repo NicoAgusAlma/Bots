@@ -13,7 +13,7 @@ En mi caso, instale Chrome como diver.
 ## ❔ Como hacer esto?
 En caso de no tener instalados Selenium, ni el Chrome driver:
 
-* Selenium: Esto se instala con un comando pip en la consola. 
+* Selenium: Esto se instala con un comando pip en la consola. <br>
     Esto, independientemente del sistema operativo, suele ser con pip install selenium.
 * Web driver: En mi caso, use el Chrome web driver ya que uso Chrome como navegador prederminado.
     Hay que tener en cuenta que la version del web driver a descargar, tiene que coincidir con la del navegador ya instalado. Para averiguar esto en Chrome, ir a los tres puntos de arriba a la derecha / Ayuda / Informacion de Google Chrome. Aqui el [link](https://sites.google.com/chromium.org/driver/) para descargar el web driver.
