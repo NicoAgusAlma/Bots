@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import time
 import winsound
 
-# Aca se define el precio objetivo en miles -> 30.000 se pondria como 30
+# Aca se define el precio objetivo
 
 price = int(input('Ingrese el precio que esta dispuesto a abonar, en miles\n(Ej: 30000, 120000, etc):\n'))
 
