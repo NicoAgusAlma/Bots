@@ -19,6 +19,5 @@ Comparto [aqui](https://discordapp.com/users/NicoAlma#7687) mi link de Discord p
 Todo lo compartido aqui es con fines educacionales solamente. No soy responsable por ninguna accion y/o actividad que alguien pueda realizar con estos archivos compartidos.
 <br>
 <br>
-<br>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Todo lo compartido en mi plataforma GitHub está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
