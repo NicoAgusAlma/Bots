@@ -3,7 +3,8 @@
 </h1>
 
 <h4 align="center">
-  Aqui les comparto algunos de mis Bots. Por favor sientanse libres de descargarlos, modificarlos, etc.
+  Aqui les comparto algunos de mis Bots. <br>
+  Por favor sientanse libres de descargarlos, modificarlos, etc.
   Todos los programas estan comentados linea por linea para entender bien el codigo.
 </h4>
 
