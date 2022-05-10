@@ -1,15 +1,24 @@
 <h1 align="center">
-  Bienvenidos a mi GitHub!
+  Bots en Python!
 </h1>
 
 <h4 align="center">
-  Aqui les comparto algunos de mis programas. Por favor sientanse libres de descargarlos, modificarlos, etc.
+  Aqui les comparto algunos de mis Bots. Por favor sientanse libres de descargarlos, modificarlos, etc.
   Todos los programas estan comentados linea por linea para entender bien el codigo.
 </h4>
 
-## ❤️ Sobre mi
-Programo por pasion y por curiosidad. Hago programas que me resultan interesantes y que resuelven situaciones propias.
-Sumando constantemente conocimiento y aprendiendo de muchas fuentes.
+## 🆘 Atención!
+Para poder hacer funcionar estos Bots, hace falta tener instalado Selenium y un navegador (driver).
+En mi caso, instale Chrome como driver.
+
+## ❔ Como hacer esto?
+En caso de no tener instalados Selenium, ni el Chrome driver:
+
+* Selenium: Esto se instala con un comando pip en la consola. <br>
+    Esto, independientemente del sistema operativo, suele ser con pip install selenium.
+* Web driver: En mi caso, use el Chrome web driver ya que uso Chrome como navegador prederminado.
+    Hay que tener en cuenta que la version del web driver a descargar, tiene que coincidir con la del navegador ya instalado. Para averiguar esto en Chrome, ir a los tres puntos de arriba a la derecha / Ayuda / Informacion de Google Chrome. Aqui el [link](https://sites.google.com/chromium.org/driver/) para descargar el web driver.
+* En caso de no entender: Les comparto [aqui](https://www.youtube.com/watch?v=Xjv1sY630Uc) un video donde esto se       explica con ejemplos.
 
 ## 💌 Algun mensaje?
 * Discord: NicoAlma#7687
