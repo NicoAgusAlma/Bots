@@ -21,6 +21,12 @@ Por ejemplo: 'ARMADO RIG'
 De esta manera, podremos encontrar el Chat ID y el codigo Athorization. Estos codigos deben colocarse dentro de las comillas en la variable canal_discord y dentro de las comillas en el diccionario header.
 Nuevamente, todo esto esta explicado [aqui](https://youtu.be/ZMPYXDfH6YE).
 
+## 🙌 Donaciones!
+* ETH (ERC20): 0xeC7D19b04f62f6227f53af3bA182Ca720549d93e
+* Cardano: addr1qy5p9kneh4j4sts8zdde8ah7jffqsta8zyzarc8lwclxfhegztd8n0t9tqhqwy6mj0m0ayjjpqh6wyg968s07a37vn0ss48deg
+* XRP: rLRabQjgYrxwC6MDmbY8WH8twuZ1rDiL74
+* RVN: RLhLCD5SESh5R5JK9VF9gTjSuXPo6WBisr
+
 ## ⚠️ Disclaimer
 Todo lo compartido aqui es con fines educacionales solamente. No soy responsable por ninguna accion y/o actividad que alguien pueda realizar con estos archivos compartidos.
 <br>
