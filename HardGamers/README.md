@@ -10,7 +10,7 @@
 
 ## ❔ Como hacer esto?
 A continuacíon instrucciones para hacerlo funcionar.
-De todas maneras, [aqui](https://youtu.be/ebiOEImSmMA) se puede encontrar un video con la explicacion del bot y [aqui](https://youtu.be/ZMPYXDfH6YE) un video con la explicacion de la alarma por Discord.
+De todas maneras, [aqui](https://youtu.be/WITsSDsYVZM) se puede encontrar un video con la explicacion del bot y [aqui](https://youtu.be/cUHk7GefdUs) un video con la explicacion de la alarma por Discord.
 
 * Items a buscar: En la lista "busquedas" se deberan agregar nuevas listas con el nombre del articulo a buscar, 
     el link de busqueda de hardgamers y el precio que dispara la alarma.<br>
@@ -19,10 +19,10 @@ De todas maneras, [aqui](https://youtu.be/ebiOEImSmMA) se puede encontrar un vid
 Por ejemplo: 'ARMADO RIG'
 * Alarmas por discord: Para configurar las alarmas por discord, se debe crear una cuenta secundaria y agregarla como amigo de la cuenta primaria. Luego, crear un canal donde participen ambas cuentas. Luego, ingresar a Discord a traves del navegador web con la cuenta secundaria, ingresar al canal donde se deseen enviar los mensajes (en este caso el canal creado recientemente). Luego, apretar la tecla F12, ir a la solapa Network y enviar un mensaje al chat del canal.
 De esta manera, podremos encontrar el Chat ID y el codigo Athorization. Estos codigos deben colocarse dentro de las comillas en la variable canal_discord y dentro de las comillas en el diccionario header.
-Nuevamente, todo esto esta explicado [aqui](https://youtu.be/ZMPYXDfH6YE).
+Nuevamente, todo esto esta explicado [aqui](https://youtu.be/cUHk7GefdUs).
 
 ## 🙌 Donaciones!
-* ETH (ERC20): 0xeC7D19b04f62f6227f53af3bA182Ca720549d93e
+* ETH (BSC): 0x3022635ECf647c7004e7F35083f4Be27B4EeF414
 * Cardano: addr1qy5p9kneh4j4sts8zdde8ah7jffqsta8zyzarc8lwclxfhegztd8n0t9tqhqwy6mj0m0ayjjpqh6wyg968s07a37vn0ss48deg
 * XRP: rLRabQjgYrxwC6MDmbY8WH8twuZ1rDiL74
 * RVN: RLhLCD5SESh5R5JK9VF9gTjSuXPo6WBisr
