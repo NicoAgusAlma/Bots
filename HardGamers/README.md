@@ -8,6 +8,12 @@
   Si en algun momento el precio de ese item cae por debajo del seleccionado, avisa con un mensaje por Discord.
 </h4>
 
+## ⚠️ ATENCION! NUEVA VERSION DISPONIBLE!
+El instructivo esta basado en la version 1.0. Ahora esta la version 2.0.<br>
+En la version 2.0 todas las configuraciones se realizan dentro del archivo setup.py<br>
+Tambien se modifico el algoritmo para que se genere una tabla por cada producto con informacion de fecha y precio para ver el progreso.
+Esta frecuencia de registros puede ser modificada dentro del archivo setup.py en la variable frecuencia_registro (hs).
+
 ## ❔ Como hacer esto?
 A continuacíon instrucciones para hacerlo funcionar.
 De todas maneras, [aqui](https://youtu.be/WITsSDsYVZM) se puede encontrar un video con la explicacion del bot y [aqui](https://youtu.be/cUHk7GefdUs) un video con la explicacion de la alarma por Discord.
