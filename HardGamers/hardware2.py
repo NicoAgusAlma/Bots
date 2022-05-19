@@ -16,12 +16,11 @@ for item in setup.busquedas:
         with open(setup.path_csv+item[0]+'.csv') as f:
             f.close
     except:
-        print('No existe csv de ' + str(item[0]))
+        print('Creando CSV de  ' + str(item[0]))
         with open(setup.path_csv+item[0]+'.csv', 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['FECHA','ITEM','PRECIO','DATE_TIME'])
         f.close
-
     
 driver = webdriver.Chrome(setup.path)
 
@@ -37,8 +36,6 @@ for item in setup.busquedas:
         rows = list(reader)
         dict_items[str(rows[-1][1])]=rows[-1][3] 
         f.close
-
-print(dict_items)
 
 # Este bucle provoca el ciclo constante entre los items dentro de la lista
 while True:
@@ -97,7 +94,6 @@ while True:
                     writer.writerow([dia, setup.busquedas[articulos][0], texto_precio, fecha])
                     f.close
                 dict_items[setup.busquedas[articulos][0]] = datetime.today().strftime('%Y/%m/%d %H:%M:%S')
-                print('Ahora la hora de : '+ setup.busquedas[articulos][0] +' es '+ dict_items[setup.busquedas[articulos][0]])
             articulos += 1
 
         # Si el precio de la publicacion es menor al colocado en el tercer lugar del item en la lista,
