@@ -30,11 +30,16 @@ elemento_tabla = 1
 dict_items = {}
 
 # Se crea un diccionario con los nombres de los items como llaves y la ultima hora de sus registros
+# Si no existen registros, se agrega un horario al diccionario en ese item con una diferencia mayor a la asignada en frecuencia_registro
+# De esa manera nos aseguramos que en la primera iteracion, guarde el registro.
 for item in setup.busquedas:
     with open(setup.path_csv+item[0]+'.csv') as f:
         reader = csv.reader(f,delimiter=',') 
         rows = list(reader)
-        dict_items[str(rows[-1][1])]=rows[-1][3] 
+        if rows[-1][1] != 'ITEM':
+            dict_items[str(rows[-1][1])]=rows[-1][3] 
+        else:
+            dict_items[item[0]] = (datetime.today() - timedelta(hours=setup.frecuencia_registro)).strftime('%Y/%m/%d %H:%M:%S')
         f.close
 
 # Este bucle provoca el ciclo constante entre los items dentro de la lista
@@ -84,7 +89,7 @@ while True:
 
             # Aqui se compara la hora actual con la ultima hora registrada (almacenada en el diccionario).
             # Si ya paso mas tiempo que el designado en la variable frecuencia_registro, se agrega un nuevo registro
-            # y se modifica en el diccionario la nueva ultima hora registrada de ese item.
+            # y se modifica en el diccionario la nueva ultima hora registrada de ese item.            
             if datetime.today() - datetime.strptime(dict_items[setup.busquedas[articulos][0]], '%Y/%m/%d %H:%M:%S') > timedelta(hours=setup.frecuencia_registro):
                 print('Guardando ultima fecha en item '+ setup.busquedas[articulos][0])  
                 fecha = datetime.today().strftime('%Y/%m/%d %H:%M:%S')
@@ -93,7 +98,7 @@ while True:
                     writer = csv.writer(f)                
                     writer.writerow([dia, setup.busquedas[articulos][0], texto_precio, fecha])
                     f.close
-                dict_items[setup.busquedas[articulos][0]] = datetime.today().strftime('%Y/%m/%d %H:%M:%S')
+                dict_items[setup.busquedas[articulos][0]] = datetime.today().strftime('%Y/%m/%d %H:%M:%S')                       
             articulos += 1
 
         # Si el precio de la publicacion es menor al colocado en el tercer lugar del item en la lista,
