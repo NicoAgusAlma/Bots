@@ -10,22 +10,35 @@ from datetime import datetime, timedelta
 import csv
 import setup
 
-for j in range(len(setup.busquedas)):
+# Aqui se detectan los csv de los items y en caso de que no existan, se crean con encabezado
+for item in setup.busquedas:
     try:
-        f = open(setup.path_csv+setup.busquedas[j-1][0]+'.csv')
-        f.close
+        with open(setup.path_csv+item[0]+'.csv') as f:
+            f.close
     except:
-        print('No existe csv de ' + str(setup.busquedas[j-1][0]))
-        with open(setup.path_csv+setup.busquedas[j-1][0]+'.csv', 'a', newline='') as f:
+        print('No existe csv de ' + str(item[0]))
+        with open(setup.path_csv+item[0]+'.csv', 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['FECHA','ITEM','PRECIO','DATE_TIME'])
         f.close
+
     
 driver = webdriver.Chrome(setup.path)
 
 # Estas variables se usan mas adelante
 articulos = 0
 elemento_tabla = 1
+dict_items = {}
+
+# Se crea un diccionario con los nombres de los items como llaves y la ultima hora de sus registros
+for item in setup.busquedas:
+    with open(setup.path_csv+item[0]+'.csv') as f:
+        reader = csv.reader(f,delimiter=',') 
+        rows = list(reader)
+        dict_items[str(rows[-1][1])]=rows[-1][3] 
+        f.close
+
+print(dict_items)
 
 # Este bucle provoca el ciclo constante entre los items dentro de la lista
 while True:
@@ -72,25 +85,19 @@ while True:
             print('El precio de ' + setup.busquedas[articulos][0] + ' (' + str(texto_precio) + ') es mayor que el ingresado (' + str(setup.busquedas[articulos][2]) + ').')
             time.sleep(setup.delay)  
 
-            with open(setup.path_csv+setup.busquedas[articulos][0]+'.csv') as f:
-                reader = csv.reader(f,delimiter=',')
-                for row in reader:
-                    try:
-                        ultima_fecha_item = row[3]                      
-                        ultima_fecha_item = datetime.strptime(ultima_fecha_item, '%Y/%m/%d %H:%M:%S')
-                    except:
-                        ultima_fecha_item = datetime.strptime('2000/01/01', '%Y/%m/%d')
-            f.close
-
-            if datetime.today() - ultima_fecha_item > timedelta(hours=setup.frecuencia_registro):
+            # Aqui se compara la hora actual con la ultima hora registrada (almacenada en el diccionario).
+            # Si ya paso mas tiempo que el designado en la variable frecuencia_registro, se agrega un nuevo registro
+            # y se modifica en el diccionario la nueva ultima hora registrada de ese item.
+            if datetime.today() - datetime.strptime(dict_items[setup.busquedas[articulos][0]], '%Y/%m/%d %H:%M:%S') > timedelta(hours=setup.frecuencia_registro):
                 print('Guardando ultima fecha en item '+ setup.busquedas[articulos][0])  
                 fecha = datetime.today().strftime('%Y/%m/%d %H:%M:%S')
                 dia = datetime.today().strftime("%d/%m/%Y")
                 with open(setup.path_csv+setup.busquedas[articulos][0]+'.csv', 'a', newline='') as f:
                     writer = csv.writer(f)                
                     writer.writerow([dia, setup.busquedas[articulos][0], texto_precio, fecha])
-                f.close
-            
+                    f.close
+                dict_items[setup.busquedas[articulos][0]] = datetime.today().strftime('%Y/%m/%d %H:%M:%S')
+                print('Ahora la hora de : '+ setup.busquedas[articulos][0] +' es '+ dict_items[setup.busquedas[articulos][0]])
             articulos += 1
 
         # Si el precio de la publicacion es menor al colocado en el tercer lugar del item en la lista,
@@ -101,7 +108,7 @@ while True:
             imagen_placa = driver.find_element(By.XPATH, value="/html/body/div/div[4]/div/div[1]/div[2]/div[1]/a/img").get_attribute("src")
             web_placa = driver.find_element(By.XPATH, value="/html/body/div/div[4]/div/div[1]/div[2]/div[2]/a[4]").get_attribute("href") 
             print('El precio de ' + setup.busquedas[articulos][0] + ' (' + str(texto_precio) + ') es menor que el ingresado (' + str(setup.busquedas[articulos][2]) + ').')
-            mensajeDiscord = {'content': texto_placa + ' ESTA BARATA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'}            
+            mensajeDiscord = {'content': texto_placa + ' ESTA $'+ str(texto_precio) + ' Y MAS BARATA QUE $'+ str(setup.busquedas[articulos][2]) +' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'}            
             r = pip._vendor.requests.post("https://discord.com/api/v9/channels/"+ setup.canal_discord +"/messages", data=mensajeDiscord, headers=setup.header)            
             mensajeDiscord = {'content': imagen_placa}
             r = pip._vendor.requests.post("https://discord.com/api/v9/channels/"+ setup.canal_discord +"/messages", data=mensajeDiscord, headers=setup.header)            
